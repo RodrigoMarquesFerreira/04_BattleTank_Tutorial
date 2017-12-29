@@ -1,4 +1,5 @@
 # 04_BattleTank_Tutorial
 
 ## Lectures Done List
-* BT01 Intrduction
+* BT01 Intro, Notes & Assets
+* BT02 Game Design Document
