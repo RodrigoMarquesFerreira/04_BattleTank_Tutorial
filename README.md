@@ -13,3 +13,4 @@
 * BT10 More Landscape tools 
 * BT11 Tank Controller System
 * BT12 Actors From Multiple Meshes
+* BT13 Configuring a Tank (pawn and BP_GameMode)
