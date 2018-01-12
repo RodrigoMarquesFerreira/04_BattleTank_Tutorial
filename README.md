@@ -24,3 +24,4 @@
 * BT21 Delegating to Components
 * BT22 Using Virtual & Override
 * BT23 Overloading & Polymorphism
+* BT24 Virtual Functions and VTables
