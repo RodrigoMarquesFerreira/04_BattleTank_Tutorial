@@ -21,3 +21,4 @@
 * BT18 Scale Box, Buttons & Mouse
 * BT19 Controller Ready Navegaion
 * BT20 Trial Packing Your Game
+* BT21 Delegating to Components
