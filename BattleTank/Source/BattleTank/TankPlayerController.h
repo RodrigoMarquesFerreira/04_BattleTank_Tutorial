@@ -17,6 +17,11 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	
 	
 public:
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = 0.5f;
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = 0.33333f;
+
 	ATank* GetControlledTank() const;
 
 	virtual void BeginPlay() override;
