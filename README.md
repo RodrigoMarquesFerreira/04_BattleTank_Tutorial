@@ -27,3 +27,5 @@
 * BT24 Virtual Functions and VTables
 * BT25 Creating an AI Controller Class
 * BT26 Get The Player Controller With C++
+* BT27 Add Tick( ) to PlayerController
+
