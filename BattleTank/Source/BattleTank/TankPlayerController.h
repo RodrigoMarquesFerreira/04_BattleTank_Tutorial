@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Tank.h"
+#include "Runtime/Engine/Classes/Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
@@ -16,6 +17,8 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	
 	
 public:
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 100000.0f;
 	UPROPERTY(EditAnywhere)
 	float CrosshairXLocation = 0.5f;
 	UPROPERTY(EditAnywhere)
@@ -35,5 +38,7 @@ private:
 	bool GetSightRayHitLocation(FVector& OutHitlocation) const;
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 	
 };

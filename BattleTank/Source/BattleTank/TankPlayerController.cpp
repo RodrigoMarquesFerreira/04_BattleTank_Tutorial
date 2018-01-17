@@ -34,7 +34,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 	FVector Hitlocation; // Out parameter
 	if (GetSightRayHitLocation(Hitlocation)) {
 
-		//UE_LOG(LogTemp, Warning, TEXT("Look direction: %s"), *Hitlocation.ToString())
+		UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *Hitlocation.ToString())
 		
 				//TODO tell controlled tank to aim at this point 
 	}
@@ -53,23 +53,46 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitlocation) cons
 	int32 ViewportSizeX, ViewporteSizeY;
 	GetViewportSize(ViewportSizeX, ViewporteSizeY);
 	auto SceenLocation = FVector2D(ViewportSizeX * CrosshairXLocation, ViewporteSizeY * CrosshairYLocation);
+
 	//De-project the crosshair
-	FVector CameraWorldDirection;
-	if (GetLookDirection(SceenLocation, CameraWorldDirection))
+	FVector LookDirection;
+	if (GetLookDirection(SceenLocation, LookDirection))
 	{
-		UE_LOG(LogTemp, Warning, TEXT(" Camera Look direction: %s"), *CameraWorldDirection.ToString())
+		GetLookVectorHitLocation(LookDirection, OutHitlocation);
+
+		///UE_LOG(LogTemp, Warning, TEXT(" Camera Look direction: %s"), *GetLoo.ToString())
 	}
+
 	
 	return true;
 }
 
-bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector & LookDirection) const
+bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
 {
-	FVector CameraWolrdLocation; // To be Descarted 
+	FVector CameraWolrdLocation;
 	return DeprojectScreenPositionToWorld(
 		ScreenLocation.X,
 		ScreenLocation.Y,
 		CameraWolrdLocation,
 		LookDirection);
 	
+}
+
+bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
+{
+	FHitResult HitResult;
+	auto StartLocation = PlayerCameraManager->GetCameraLocation();
+	auto EndLocation = StartLocation + (LookDirection * LineTraceRange);
+	if (GetWorld()->LineTraceSingleByChannel(
+		HitResult,
+		StartLocation,
+		EndLocation,
+		ECollisionChannel::ECC_Visibility
+		)) 
+	{
+		HitLocation = HitResult.Location;
+		return true;
+	}
+	HitLocation = FVector(0.0, 0.0, 0.0);
+	return false;
 }
