@@ -31,6 +31,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	
+
 	//Start the ank moving the barrel so that a shot would it where
 	//the crosshair intersecs the world
 	void AimTowardsCrosshair();
