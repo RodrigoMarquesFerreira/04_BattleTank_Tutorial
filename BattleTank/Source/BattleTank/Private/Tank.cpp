@@ -46,3 +46,8 @@ void ATank::AimAt(FVector HitLocation)
 	UE_LOG(LogTemp, Warning, TEXT("%s Hit Location: %s"),*OurTankName, *HitLocation.ToString())
 	*/
 }
+
+void ATank::SetBarrelReference(UStaticMeshComponent * BarrelToSet)
+{
+	TankAimingComponent->SetBarrelReference(BarrelToSet);
+}
