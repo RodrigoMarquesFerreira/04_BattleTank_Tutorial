@@ -35,6 +35,7 @@
 * BT32 Unify Player & AI Aiming
 * BT33 Create Default Sub Objects in C++
 * BT34 Blueprint Callable( )
+* BT35 SuggestProjectileVelocity( )
 
 
 
