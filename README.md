@@ -36,7 +36,8 @@
 * BT33 Create Default Sub Objects in C++
 * BT34 Blueprint Callable( )
 * BT35 SuggestProjectileVelocity( )
-* BT56 Predict Projectile Landing Point
+* BT36 Predict Projectile Landing Point
+* BT37 Using FRotators in Unreal
 
 
 
