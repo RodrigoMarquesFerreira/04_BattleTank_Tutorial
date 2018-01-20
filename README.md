@@ -39,6 +39,6 @@
 * BT36 Predict Projectile Landing Point
 * BT37 Using FRotators in Unreal
 * BT38 The C++ Comilation Process
-
+* BT39 Using Forward Declarations
 
 
