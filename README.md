@@ -40,5 +40,5 @@
 * BT37 Using FRotators in Unreal
 * BT38 The C++ Comilation Process
 * BT39 Using Forward Declarations
-
+* BT40 BlueprintSpawnableComponent( )
 
