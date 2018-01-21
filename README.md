@@ -48,3 +48,4 @@
 * BT45 CHALLENGE: Turret Rotation pt.2
 * BT46 Setting Up Projectiles
 * BT47 Upgrading to Unreal 4.12
+* BT48 Note About the Movement Bug 
