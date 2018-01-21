@@ -45,3 +45,4 @@
 * BT43 How to Report Bugs
 * BT43b Using Clamp( ) to Limit Values
 * BT44 CHALLENGE: Turret Rotation
+* BT44 CHALLENGE: Turret Rotation pt.2
