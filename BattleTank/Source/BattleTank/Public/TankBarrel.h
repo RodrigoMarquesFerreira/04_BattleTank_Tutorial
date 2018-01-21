@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Components/StaticMeshComponent.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
+#include "Runtime/Core/Public/Math/UnrealMathUtility.h"
 #include "TankBarrel.generated.h"
 
 /**
- * 
+ *  #include "Runtime/Engine/Classes/GameFramework/Actor.h"
  */
 UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
