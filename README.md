@@ -52,3 +52,4 @@
 * BT49 Working Around Awkward Bugs
 * BT50 Using SpawnActor<> ( ) to Spawn
 * BT51 Projectile Movement Component
+* BT52 Making AI Tanks Fire
