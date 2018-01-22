@@ -61,9 +61,11 @@ void ATank::Fire()
 	if (!Barrel) { return; }
 
 	/// spawn the projectile at the socket location on the barrel
-	auto SpawnLocation = Barrel->GetSocketLocation("Projectile");
-	auto SpawnRotation = Barrel->GetSocketRotation("Projectile");
-	GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, SpawnLocation, SpawnRotation);
-		UE_LOG(LogTemp, Warning, TEXT("Fired !!!!!"))
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+		ProjectileBlueprint, 
+		Barrel->GetSocketLocation("Projectile"), 
+		Barrel->GetSocketRotation("Projectile")
+		);
 	
+		Projectile->LaunchProjectile(LaunchSpeed);
 }

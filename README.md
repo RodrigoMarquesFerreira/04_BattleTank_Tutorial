@@ -51,3 +51,4 @@
 * BT48 Note About the Movement Bug 
 * BT49 Working Around Awkward Bugs
 * BT50 Using SpawnActor<> ( ) to Spawn
+* BT51 Projectile Movement Component
