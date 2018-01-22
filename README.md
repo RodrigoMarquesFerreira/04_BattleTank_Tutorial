@@ -50,3 +50,4 @@
 * BT47 Upgrading to Unreal 4.12
 * BT48 Note About the Movement Bug 
 * BT49 Working Around Awkward Bugs
+* BT50 Using SpawnActor<> ( ) to Spawn
