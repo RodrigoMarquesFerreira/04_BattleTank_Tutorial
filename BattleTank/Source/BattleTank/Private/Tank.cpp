@@ -17,7 +17,7 @@ ATank::ATank()
 
 	// no need to protect poiters as  addd at construction
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
-	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
+	
 
 }
 

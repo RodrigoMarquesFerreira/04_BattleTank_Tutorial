@@ -60,3 +60,4 @@
 * BT57 Physics Material & Friction
 * BT58 Fly-by-Wire Control System
 * BT59 UsingBlueprintReadOnly
+* BT60 A Better Component Archtecture
