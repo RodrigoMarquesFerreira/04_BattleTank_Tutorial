@@ -59,3 +59,4 @@
 * BT56 ApplyForceatLocation( ) in action
 * BT57 Physics Material & Friction
 * BT58 Fly-by-Wire Control System
+* BT59 UsingBlueprintReadOnly
