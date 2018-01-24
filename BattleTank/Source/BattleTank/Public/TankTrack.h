@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/StaticMeshComponent.h"
+#include "Runtime/Engine/Classes/Components/PrimitiveComponent.h"
 #include "TankTrack.generated.h"
 
 /**
@@ -18,6 +19,7 @@ public:
 	// Set a Trhottle between -1 and +1
 	UFUNCTION(BlueprintCallable, category = input)
 	void SetThrottle(float Throttle);
-	
-	
+	// max force per track, in newtons
+	UPROPERTY(EditDefaultsOnly)
+	float TrackMaxDrivingForce = 400000;
 };
