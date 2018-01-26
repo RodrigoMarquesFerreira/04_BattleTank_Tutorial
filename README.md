@@ -62,3 +62,4 @@
 * BT59 UsingBlueprintReadOnly
 * BT60 A Better Component Archtecture
 * BT61 Completing Manual Tank Movement
+* BT62 Introducing AI Pathfinding
