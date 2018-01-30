@@ -64,3 +64,4 @@
 * BT61 Completing Manual Tank Movement
 * BT62 Introducing AI Pathfinding
 * BT63 Dissecting RequestDirectMove( )
+* BT64 DotProduct( ) Vector Operetor

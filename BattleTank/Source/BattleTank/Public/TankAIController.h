@@ -22,5 +22,5 @@ private:
 
 	virtual void BeginPlay() override;
 	///UPROPERTY(BlueprintAssignable)
-	float AcceptanceRadius = 3000.0f;
+	float AcceptanceRadius = 3000;
 };
