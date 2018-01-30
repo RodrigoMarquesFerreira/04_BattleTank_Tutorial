@@ -10,6 +10,13 @@ void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* 
 	RightTrack = RightTrackToSet;
 }
 
+void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, bool bForceMaxSpeed)
+{
+	auto Name = GetOwner()->GetName();
+	auto MoveVelocityString = MoveVelocity.ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s move to %s"), *Name, *MoveVelocityString)
+}
+
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
@@ -24,5 +31,5 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	//TODO prevent double speed
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
-	UE_LOG(LogTemp, Warning, TEXT("Intend move right throw: %f"), Throw)
+	
 }
