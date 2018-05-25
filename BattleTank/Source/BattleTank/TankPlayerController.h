@@ -23,14 +23,17 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	float CrosshairYLocation = 0.33333f;
 
+
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
+
+private:
+
 
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
-
-private:
-	
 
 	//Start the ank moving the barrel so that a shot would it where
 	//the crosshair intersecs the world
