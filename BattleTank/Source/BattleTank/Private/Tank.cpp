@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Tank.h"
-#include "TankAimingComponent.h"
 #include "TankBarrel.h"
 #include "TankTurret.h"
 #include "Projectile.h"
@@ -17,13 +16,6 @@ ATank::ATank()
 	auto TankName = GetName();
 	UE_LOG(LogTemp, Warning, TEXT("%s DONKEY: Tank C++ construct"), *TankName)
 	
-}
-
-
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!ensure(TankAimingComponent)) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 
@@ -48,5 +40,4 @@ void ATank::Fire()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); //needed for BP Begin Play to run
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }

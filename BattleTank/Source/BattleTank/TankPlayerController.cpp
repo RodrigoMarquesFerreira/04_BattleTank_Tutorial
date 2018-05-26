@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
-#include "Tank.h"
 #include "BattleTank.h"
 #include "TankAimingComponent.h"
 
@@ -10,7 +9,7 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	auto AimingComponente = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	auto AimingComponente = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponente)) {return; }
 	FoundAimingComponenet(AimingComponente);
 	
@@ -25,23 +24,19 @@ void ATankPlayerController::Tick(float DeltaTime)
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
-	if (!ensure(GetControlledTank())) { return; }
+	auto AimingComponente = GetPawn()->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AimingComponente)) { return; }
 	
 	FVector Hitlocation; // Out parameter
 	if (GetSightRayHitLocation(Hitlocation)) {
 
 		///UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *Hitlocation.ToString())
-		GetControlledTank()->AimAt(Hitlocation);
+		AimingComponente->AimAt(Hitlocation);
 				
 	}
 }
 
 
-
-ATank* ATankPlayerController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-};
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitlocation) const
 {
