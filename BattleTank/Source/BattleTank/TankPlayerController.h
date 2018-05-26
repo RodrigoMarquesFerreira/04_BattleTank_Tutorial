@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright UnEpic Studio.
 
 #pragma once
 
@@ -8,6 +8,9 @@
 #include "TankPlayerController.generated.h"
 
 class ATank;
+class UTankAimingComponent;
+
+// Responsable for Helpin the player aim.
 
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
@@ -27,6 +30,9 @@ public:
 protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponenet(UTankAimingComponent* AimCompRef);
 
 private:
 
