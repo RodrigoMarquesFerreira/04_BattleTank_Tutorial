@@ -37,6 +37,7 @@ protected:
 private:	
 	virtual void BeginPlay() override;
 
+	// TODO remove once firing is moved  to aiming componente 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 100000; // TODO find a ressonable value
 

@@ -24,12 +24,7 @@ void ATank::AimAt(FVector HitLocation)
 {
 	if (!ensure(TankAimingComponent)) { return; }
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
-	/*auto OurTankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("%s Hit Location: %s"),*OurTankName, *HitLocation.ToString())
-	*/
 }
-
-
 
 
 void ATank::Fire()
@@ -53,6 +48,5 @@ void ATank::Fire()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); //needed for BP Begin Play to run
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("%s DONKEY:Tank C++ Begin Play"), *TankName);
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }
