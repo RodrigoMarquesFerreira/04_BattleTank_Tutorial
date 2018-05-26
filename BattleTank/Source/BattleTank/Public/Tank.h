@@ -37,7 +37,8 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:	
-	
+	virtual void BeginPlay() override;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 100000; // TODO find a ressonable value
 
