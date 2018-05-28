@@ -7,6 +7,7 @@ UTankTrack::UTankTrack()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
+<<<<<<< HEAD
 void UTankTrack::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, FVector NormalImpulse, const FHitResult & Hit)
 {
 	ApplySidewaysForce();
@@ -21,6 +22,9 @@ void UTankTrack::BeginPlay()
 
 
 /*void UTankTrack::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
+=======
+void UTankTrack::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
+>>>>>>> parent of 41d2ffc... BT 82 OnComponentHit Event
 {
 	Super::TickComponent(DeltaTime,TickType, ThisTickFunction);
 }*/

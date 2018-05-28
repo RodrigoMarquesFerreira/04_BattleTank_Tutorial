@@ -25,6 +25,7 @@ public:
 	float TrackMaxDrivingForce = 400000;
 private:
 	UTankTrack();
+<<<<<<< HEAD
 	
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
@@ -34,4 +35,8 @@ private:
 	void ApplySidewaysForce();
 
 	//virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) override;
+=======
+private:
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) override;
+>>>>>>> parent of 41d2ffc... BT 82 OnComponentHit Event
  };
