@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankTrack.h"
+<<<<<<< HEAD
 
 UTankTrack::UTankTrack()
 {
@@ -41,6 +42,9 @@ void UTankTrack::ApplySidewaysForce()
 	auto CorrectionForce = (TankRoot->GetMass() * CorrectionAccelaration) / 2; // two tracks
 	TankRoot->AddForce(CorrectionForce);
 }
+=======
+
+>>>>>>> parent of b000693... BT 81 Programmatic sideways friction
 
 void UTankTrack::SetThrottle(float Throttle)
 {

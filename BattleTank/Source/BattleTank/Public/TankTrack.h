@@ -23,6 +23,7 @@ public:
 	// max force per track, in newtons
 	UPROPERTY(EditDefaultsOnly)
 	float TrackMaxDrivingForce = 400000;
+<<<<<<< HEAD
 private:
 	UTankTrack();
 <<<<<<< HEAD
@@ -40,3 +41,6 @@ private:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) override;
 >>>>>>> parent of 41d2ffc... BT 82 OnComponentHit Event
  };
+=======
+};
+>>>>>>> parent of b000693... BT 81 Programmatic sideways friction
