@@ -17,8 +17,7 @@ void ATankPlayerController::BeginPlay()
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	AimTowardsCrosshair();
-		// aim towards crosshair();
+	AimTowardsCrosshair(); // aim towards crosshair
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
@@ -27,11 +26,9 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if (!ensure(AimingComponente)) { return; }
 	
 	FVector Hitlocation; // Out parameter
-	if (GetSightRayHitLocation(Hitlocation)) {
-
-		///UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *Hitlocation.ToString())
-		AimingComponente->AimAt(Hitlocation);
-				
+	if (GetSightRayHitLocation(Hitlocation)) 
+	{	
+		AimingComponente->AimAt(Hitlocation);			
 	}
 }
 

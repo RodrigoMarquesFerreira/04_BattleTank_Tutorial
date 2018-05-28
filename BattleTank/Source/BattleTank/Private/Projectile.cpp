@@ -16,21 +16,17 @@ AProjectile::AProjectile()
 // Called when the game starts or when spawned
 void AProjectile::BeginPlay()
 {
-	Super::BeginPlay();
-	
+	Super::BeginPlay();	
 }
 
 // Called every frame
 void AProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AProjectile::LaunchProjectile(float Speed) 
 {
 	ProjectileMovement->SetVelocityInLocalSpace(FVector::ForwardVector * Speed);
 	ProjectileMovement->Activate();
-
-	UE_LOG(LogTemp, Warning, TEXT("Projectile launch at: %f"), Speed)
 }
