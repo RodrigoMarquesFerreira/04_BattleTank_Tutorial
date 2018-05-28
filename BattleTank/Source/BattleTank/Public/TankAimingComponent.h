@@ -53,6 +53,8 @@ private:
 
 	void UTankAimingComponent::MoveTurretTowards(FVector AimDirection);
 
+	bool IsBarrelMoving();
+
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000; // TODO find a ressonable value
 
@@ -64,6 +66,8 @@ private:
 	UTankTurret* Turret = nullptr;
 	
 	float ReloadTimeInSeconds = 3.0f;
+
+	FVector AimDirection;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	double LastFireTime = 0.0f;
