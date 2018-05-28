@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright UnEpic Studio.
 
 #pragma once
 
@@ -12,9 +12,6 @@ UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-	
-
-
 private:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

@@ -5,7 +5,6 @@
 #include "TankAimingComponent.h"
 
 
-
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -36,8 +35,6 @@ void ATankPlayerController::AimTowardsCrosshair()
 	}
 }
 
-
-
 bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitlocation) const
 {
 	//find the crosshair position
@@ -50,11 +47,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitlocation) cons
 	if (GetLookDirection(SceenLocation, LookDirection))
 	{
 		GetLookVectorHitLocation(LookDirection, OutHitlocation);
-
-		///UE_LOG(LogTemp, Warning, TEXT(" Camera Look direction: %s"), *GetLoo.ToString())
 	}
-
-	
 	return true;
 }
 
@@ -66,7 +59,6 @@ bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& 
 		ScreenLocation.Y,
 		CameraWolrdLocation,
 		LookDirection);
-	
 }
 
 bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const

@@ -3,15 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/World.h"
-#include "GameFramework/PlayerController.h"
-#include "GameFramework/Pawn.h"
+#include "Runtime/Engine/Classes/Engine/World.h"
 #include "Tank.generated.h"
-
-class UTankBarrel;
-class UTankTurret;
-class AProjectile;
-
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -21,27 +14,4 @@ class BATTLETANK_API ATank : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ATank();
-
-	UFUNCTION(BlueprintCallable)
-	void Fire();
-
-
-private:	
-	virtual void BeginPlay() override;
-
-	// TODO remove once firing is moved  to aiming componente 
-	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float LaunchSpeed = 100000; // TODO find a ressonable value
-
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
-	TSubclassOf<AProjectile> ProjectileBlueprint;
-
-	// local barrel reference for spawning the projectile
-	UTankBarrel* Barrel = nullptr; //TODO remove
-
-	float ReloadTimeInSeconds = 3.0f;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	double LastFireTime = 0.0f;
-
 };
