@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright UnEpic Studio.
 
 
 #include "TankAimingComponent.h"
@@ -110,7 +110,15 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRatator = AimAsRotator - BarrelRotator;
 	
 	Barrel->Elevate(DeltaRatator.Pitch);
-	Turret->Rotate(DeltaRatator.Yaw);
+	UE_LOG(LogTemp, Warning, TEXT("Yaw = %f"), DeltaRatator.Yaw)
+	if (DeltaRatator.Yaw < 180.0f) 
+	{
+		Turret->Rotate(DeltaRatator.Yaw);
+	}
+	else
+	{
+		Turret->Rotate(-DeltaRatator.Yaw);
+	}
 }
 
 void UTankAimingComponent::MoveTurretTowards(FVector AimDirection)

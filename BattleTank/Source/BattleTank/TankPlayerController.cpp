@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright UnEpic Studio.
 
 #include "TankPlayerController.h"
 #include "BattleTank.h"
@@ -22,11 +22,14 @@ void ATankPlayerController::Tick(float DeltaTime)
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
+	if (!GetPawn()) { return; }
 	auto AimingComponente = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponente)) { return; }
 	
 	FVector Hitlocation; // Out parameter
-	if (GetSightRayHitLocation(Hitlocation)) 
+	bool bGotHitLocation = GetSightRayHitLocation(Hitlocation);
+	UE_LOG(LogTemp,  Warning, TEXT("bGotHitLocation = %i"), bGotHitLocation)
+	if (bGotHitLocation) 
 	{	
 		AimingComponente->AimAt(Hitlocation);			
 	}
@@ -43,9 +46,9 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitlocation) cons
 	FVector LookDirection;
 	if (GetLookDirection(SceenLocation, LookDirection))
 	{
-		GetLookVectorHitLocation(LookDirection, OutHitlocation);
+		return GetLookVectorHitLocation(LookDirection, OutHitlocation);
 	}
-	return true;
+	return false;
 }
 
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
