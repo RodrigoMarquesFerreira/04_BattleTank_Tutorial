@@ -8,6 +8,8 @@
 #include "Runtime/Core/Public/Math/UnrealMathUtility.h"
 #include "Tank.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTankDelegate);
+
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
@@ -19,8 +21,10 @@ public:
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor * DamageCauser) override;
 
-UFUNCTION(BlueprintPure, Category = "Health")
+	UFUNCTION(BlueprintPure, Category = "Health")
 	float GetHealthPorcentage() const;
+
+	FTankDelegate OnDeath;
 
 private:
 
