@@ -24,19 +24,23 @@ public:
 	float CrosshairXLocation = 0.5f;
 	UPROPERTY(EditDefaultsOnly)
 	float CrosshairYLocation = 0.33333f;
-
+	
+	
 
 protected:
-	
+	UFUNCTION()
+	void OnControlledTankDeath();
+
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponenet(UTankAimingComponent* AimCompRef);
 
 private:
-
-
+	
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
+
+	void SetPawn(APawn * InPawn);
 
 	//Start the ank moving the barrel so that a shot would it where
 	//the crosshair intersecs the world

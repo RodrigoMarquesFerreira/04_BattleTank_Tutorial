@@ -21,6 +21,7 @@ private:
 
 	virtual void SetPawn(APawn* InPawn) override;
 
+public:
 	UFUNCTION()
 	void OnPossessedTankDeath();
 
