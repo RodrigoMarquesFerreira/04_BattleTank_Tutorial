@@ -6,7 +6,23 @@
 #include "Tank.h"
 
 
+void ATankPlayerController::SetPawn(APawn* InPawn)
+{
+	Super::SetPawn(InPawn);
+	if (InPawn)
+	{
+		auto PossessedTank = Cast<ATank>(InPawn);
+		if (!ensure(PossessedTank)) { return; }
 
+		PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerController::OnControlledTankDeath);
+	}
+
+}
+
+void ATankPlayerController::OnControlledTankDeath()
+{
+	StartSpectatingOnly();
+}
 
 void ATankPlayerController::BeginPlay()
 {
@@ -16,29 +32,12 @@ void ATankPlayerController::BeginPlay()
 	FoundAimingComponenet(AimingComponente);
 	
 }
-void ATankPlayerController::OnControlledTankDeath()
-{
-	UE_LOG(LogTemp, Warning, TEXT("Player dead"))
-	StartSpectatingOnly();
-}
+
 
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	AimTowardsCrosshair(); // aim towards crosshair
-}
-
-void ATankPlayerController::SetPawn(APawn* InPawn)
-{
-	Super::SetPawn(InPawn);
-	if (InPawn)
-	{
-		auto PossessedTank = Cast<ATank>(InPawn);
-		if (!ensure(PossessedTank)) {return; }
-
-		PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerController::OnControlledTankDeath);
-	}
-	
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
@@ -71,16 +70,6 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitlocation) cons
 	return false;
 }
 
-bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
-{
-	FVector CameraWolrdLocation;
-	return DeprojectScreenPositionToWorld(
-		ScreenLocation.X,
-		ScreenLocation.Y,
-		CameraWolrdLocation,
-		LookDirection);
-}
-
 bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
 {
 	FHitResult HitResult;
@@ -98,4 +87,14 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	}
 	HitLocation = FVector(0.0, 0.0, 0.0);
 	return false;
+}
+
+bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
+{
+	FVector CameraWolrdLocation;
+	return DeprojectScreenPositionToWorld(
+		ScreenLocation.X,
+		ScreenLocation.Y,
+		CameraWolrdLocation,
+		LookDirection);
 }
